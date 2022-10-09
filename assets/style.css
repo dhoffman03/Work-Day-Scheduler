@@ -10,7 +10,6 @@ textarea {
   border: none;
   resize: none;
   color: #625241;
-  background-color: #a7a58f;
   border-left: 1px solid #594e2a;
   padding: 10px;
 }
@@ -46,17 +45,17 @@ textarea {
 }
 
 .past {
-  background-color: #978e94;
+  background-color: #beb4bb;
   color: #dfdacf;
 }
 
 .present {
-  background-color: #8a3864;
+  background-color: #95b6b2;
   color: #dfdacf;
 }
 
 .future {
-  background-color: #738778;
+  background-color: #ae768a;
   color: #dfdacf;
 }
 
@@ -72,4 +71,16 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
   color: #decf9d;
+}
+
+.clearBtn {
+  border: 1px solid #594e2a;
+  border-radius: 15px;
+  color: #412d29;
+}
+
+.clearBtn:hover {
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+  background-color: #dfdacf;
 }
