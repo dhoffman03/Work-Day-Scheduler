@@ -25,7 +25,7 @@ function workdayTask() {
 // Use jQuery to dectect the document's state of readiness 
 $(document).ready(function () {
 
-    // Run function
+    // Run function to save textarea
     workdayTask();
 
     // Add to local storage
