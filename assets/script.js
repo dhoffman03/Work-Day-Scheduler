@@ -33,9 +33,6 @@ $(document).ready(function () {
         const time = $(this).parent().attr('id');
         let schedule = $(this).siblings('.description').val();
 
-        console.log(time);
-        console.log(schedule);
-
         localStorage.setItem(time, schedule);
     });
 
