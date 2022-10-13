@@ -1,20 +1,22 @@
 // Display current day
-let today = moment().format('dddd, MMMM Do');
+const today = moment().format('dddd, MMMM Do');
 $('#currentDay').html(today)
 
 // Set up variables
-let time = moment();
 let hour = moment().hours();
-let saveBtn = $('.btn');
+const saveBtn = $('.btn');
+const timeBlock = $('.time-block')
+const clearBtn = $('.clearBtn')
 
-function workdayTracker() {
+// Keeps textarea saved on reload
+function workdayTask() {
 
-    $('.time-block').each(function () {
+    timeBlock.each(function () {
         // Grab id
-        let id = $(this).attr('id');
+        const id = $(this).attr('id');
         let schedule = localStorage.getItem(id);
 
-        if (schedule !== 'null') {
+        if (schedule !== null) {
             $(this).children('.description').val(schedule);
         };
     });
@@ -24,11 +26,11 @@ function workdayTracker() {
 $(document).ready(function () {
 
     // Run function
-    workdayTracker();
+    workdayTask();
 
     // Add to local storage
     saveBtn.on('click', function () {
-        let time = $(this).parent().attr('id');
+        const time = $(this).parent().attr('id');
         let schedule = $(this).siblings('.description').val();
 
         console.log(time);
@@ -37,11 +39,11 @@ $(document).ready(function () {
         localStorage.setItem(time, schedule);
     });
 
-    // timebBock row data changed by id/hour data for a color coded display
-    function colorBlock() {
-        hour = time.hours();
-        $('.time-block').each(function () {
-            let currentHour = parseInt($(this).attr('id'));
+    // timeblocks data changed by id/hour data for a color coded display of past, present, and future
+    function colorCoded() {
+        hour;
+        timeBlock.each(function () {
+            const currentHour = parseInt($(this).attr('id'));
             hour = parseInt(hour);
 
             if (currentHour < hour) {
@@ -58,17 +60,16 @@ $(document).ready(function () {
                 $(this).removeClass("present");
                 $(this).removeClass("past");
                 $(this).addClass("future");
-
             };
         });
 
         // Clear local storage
-        $('.clearBtn').on('click', function () {
+        clearBtn.on('click', function () {
             localStorage.clear();
             location.reload();
         })
     };
 
-    // Run function
-    colorBlock();
+    // Run function to color code timeblocks
+    colorCoded();
 });
